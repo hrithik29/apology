@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/apology',
-  assetPrefix: '/apology/',
+  basePath: process.env.NODE_ENV === 'production' ? '/apology' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/apology/' : '',
   trailingSlash: true,
   distDir: 'out',
   reactStrictMode: true,
