@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import Image from "next/image";
 
@@ -44,8 +42,6 @@ export default function Valentine(): React.ReactElement {
       }
     });
   };
-
-  console.log(counter);
 
   return (
     <section className="valentine-box select-none">
@@ -114,4 +110,4 @@ export default function Valentine(): React.ReactElement {
       )}
     </section>
   );
-}
+} 
