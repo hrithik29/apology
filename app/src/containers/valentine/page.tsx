@@ -3,19 +3,25 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-const noTextsArr: string[] = [
-  "No",
-  "Please forgive me",
-  "I'm really sorry",
-  "I know I messed up",
-  "I promise to do better",
-  "I'll make it up to you",
-  "I miss you",
-  "I can't stop thinking about you",
-  "I'll give you space...",
-  "Just kidding, PLEASE FORGIVE ME",
-  "You're breaking my heart ;(",
-  "No",
+interface ApologyState {
+  text: string;
+  image: string;
+  alt: string;
+}
+
+const noTextsArr: ApologyState[] = [
+  { text: "No", image: "/valentine/sorry1.gif", alt: "sad bear | initial" },
+  { text: "Please forgive me", image: "/valentine/sorry2.gif", alt: "sad bear | pleading" },
+  { text: "I'm really sorry", image: "/valentine/sorry3.gif", alt: "sad bear | sorry" },
+  { text: "I know I messed up", image: "/valentine/sorry4.gif", alt: "sad bear | regret" },
+  { text: "I promise to do better", image: "/valentine/sorry5.gif", alt: "sad bear | promise" },
+  { text: "I'll make it up to you", image: "/valentine/sorry6.gif", alt: "happy bear | making up" },
+  { text: "I miss you", image: "/valentine/sorry7.gif", alt: "sad bear | missing" },
+  { text: "I can't stop thinking about you", image: "/valentine/sorry8.gif", alt: "sad bear | thinking" },
+  { text: "I'll give you space...", image: "/valentine/sorry9.gif", alt: "sad bear | space" },
+  { text: "Just kidding, PLEASE FORGIVE ME", image: "/valentine/sorry10.gif", alt: "happy bear | pleading" },
+  { text: "You're breaking my heart ;(", image: "/valentine/sorry11.gif", alt: "sad bear | heartbroken" },
+  { text: "No", image: "/valentine/sorry12.gif", alt: "sad bear | final" },
 ];
 
 enum Stages {
@@ -48,10 +54,12 @@ export default function Valentine(): React.ReactElement {
           <div className="text-center">
             <Image
               className="mx-auto"
-              src="/valentine/valentine-bear.gif"
-              alt="sorry bear | apology"
+              src={noTextsArr[counter].image}
+              alt={noTextsArr[counter].alt}
               width={250}
               height={250}
+              unoptimized
+              priority
             />
           </div>
           <div className="text-2xl mt-2 text-gray-900 text-center">
@@ -69,7 +77,7 @@ export default function Valentine(): React.ReactElement {
               className="bg-red-500 text-white rounded ms-2 py-1 px-2 text-[18px]"
               onClick={changeNoText}
             >
-              {noTextsArr[counter]}
+              {noTextsArr[counter].text}
             </button>
           </div>
         </>
@@ -77,10 +85,12 @@ export default function Valentine(): React.ReactElement {
       {stage === Stages.stageYes && (
         <>
           <Image
-            src="/valentine/bear-kiss-bear-kisses.gif"
+            src="/valentine/sorry13.gif"
             alt="happy bear | forgiveness"
             width={250}
             height={250}
+            unoptimized
+            priority
           />
           <div className="text-center text-2xl mt-2 text-gray-900">
             {"Thank you! I promise to be better!"}
@@ -90,10 +100,12 @@ export default function Valentine(): React.ReactElement {
       {stage === Stages.unhappy && (
         <>
           <Image
-            src="/valentine/unhappy-bear.gif"
+            src="/valentine/sorry1.gif"
             alt="sad bear | no forgiveness"
             width={250}
             height={250}
+            unoptimized
+            priority
           />
           <div className="text-center text-2xl mt-2 text-gray-900">
             {"I understand... I'll wait for you"}
