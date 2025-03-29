@@ -8,6 +8,7 @@ const nextConfig = {
   assetPrefix: '/apology/',
   trailingSlash: true,
   distDir: 'out',
+  reactStrictMode: true,
 }
 
 export default nextConfig
