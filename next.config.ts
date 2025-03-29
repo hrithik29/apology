@@ -7,6 +7,7 @@ const nextConfig = {
   basePath: '/apology',
   assetPrefix: '/apology/',
   trailingSlash: true,
+  distDir: 'out',
 }
 
 export default nextConfig
