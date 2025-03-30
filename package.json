@@ -27,4 +27,13 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
+  "scripts": {
+  "dev": "next dev --turbopack",
+  "build": "next build",
+  "export": "next export",
+  "start": "next start",
+  "lint": "next lint",
+  "deploy": "npm run build && npm run export && touch out/.nojekyll && git add -f out && git commit -m 'Deploy to GitHub Pages' && git push origin gh-pages"
+}
+
 }
