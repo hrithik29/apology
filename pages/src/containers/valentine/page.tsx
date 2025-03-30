@@ -44,24 +44,24 @@ export default function Valentine(): React.ReactElement {
   };
 
   return (
-    <section className="valentine-box select-none">
+    <section className="valentine-box select-none flex flex-col items-center justify-center">
       {stage === Stages.stageNo && (
         <>
-          <div className="text-center">
+          <div className="flex flex-col items-center justify-center">
             <Image
-              className="mx-auto"
               src={noTextsArr[counter].image}
               alt={noTextsArr[counter].alt}
               width={250}
               height={250}
               unoptimized
               priority
+              className="mx-auto"
             />
+            <div className="text-2xl mt-4 text-gray-900 text-center">
+              Will you forgive me?
+            </div>
           </div>
-          <div className="text-2xl mt-2 text-gray-900 text-center">
-            Will you forgive me?
-          </div>
-          <div className="flex items-center justify-center mt-3 text-center">
+          <div className="flex items-center justify-center mt-3">
             <button
               className="bg-green-500 text-white rounded me-2 py-1 px-2"
               style={{ fontSize: counter ? `${(counter + 1) * 15}px` : "18px" }}
@@ -79,7 +79,7 @@ export default function Valentine(): React.ReactElement {
         </>
       )}
       {stage === Stages.stageYes && (
-        <>
+        <div className="flex flex-col items-center justify-center">
           <Image
             src="/valentine/sorry13.gif"
             alt="happy bear | forgiveness"
@@ -87,14 +87,15 @@ export default function Valentine(): React.ReactElement {
             height={250}
             unoptimized
             priority
+            className="mx-auto"
           />
-          <div className="text-center text-2xl mt-2 text-gray-900">
+          <div className="text-center text-2xl mt-4 text-gray-900">
             {"Thank you! I promise to be better!"}
           </div>
-        </>
+        </div>
       )}
       {stage === Stages.unhappy && (
-        <>
+        <div className="flex flex-col items-center justify-center">
           <Image
             src="/valentine/sorry1.gif"
             alt="sad bear | no forgiveness"
@@ -102,11 +103,12 @@ export default function Valentine(): React.ReactElement {
             height={250}
             unoptimized
             priority
+            className="mx-auto"
           />
-          <div className="text-center text-2xl mt-2 text-gray-900">
+          <div className="text-center text-2xl mt-4 text-gray-900">
             {"I understand... I'll wait for you"}
           </div>
-        </>
+        </div>
       )}
     </section>
   );
