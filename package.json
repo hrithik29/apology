@@ -3,13 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "export": "next export",
-    "start": "next start",
-    "lint": "next lint",
-    "deploy": "npm run build && npm run export && touch out/.nojekyll && git add -f out && git commit -m 'Deploy to GitHub Pages' && git push origin gh-pages"
-  },
+    "dev": "next dev --webpack",
+  "build": "next build --webpack",
+  "start": "next start"  },
   "dependencies": {
     "@next/third-parties": "^15.1.7",
     "@vercel/analytics": "^1.4.1",
